@@ -1,12 +1,11 @@
 import { useContext, useEffect} from "react";
-import { AuthContext } from "../context/AuthContext";
+import { AuthContext } from "./context";
 import TextField from "@mui/material/TextField"; 
 import Button from "@mui/material/Button"; 
 
-import { PostList, PostEdit, PostCreate, PostIcon } from './posts';
 
 
-const AuthForm = () => { 
+const LogInForm = () => { 
     const { isAuth, user, signIn, signOut, setIsAuth, setUser } = useContext(AuthContext);
 
     useEffect(() => {
@@ -81,4 +80,4 @@ const AuthForm = () => {
     ); 
 }; 
 
-export default AuthForm;
+export default LogInForm;
