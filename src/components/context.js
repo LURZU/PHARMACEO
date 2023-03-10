@@ -1,5 +1,5 @@
-import { createContext } from "react";
-export const AuthContext = createContext({
+import { createContext } from "react"; 
+const AuthContext = createContext({
     isAuth: false,
     user: {},
     signIn: () => {},
@@ -7,3 +7,4 @@ export const AuthContext = createContext({
     setIsAuth: () => {},
     setUser: () => {}, 
 });
+export default AuthContext;

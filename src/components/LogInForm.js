@@ -1,7 +1,9 @@
 import { useContext, useEffect} from "react";
-import { AuthContext } from "./context";
+import AuthContext from "./context";
+import { Text, StyleSheet} from 'react-native';
 import TextField from "@mui/material/TextField"; 
 import Button from "@mui/material/Button"; 
+import { styled } from 'nativewind';
 
 
 
@@ -39,12 +41,10 @@ const LogInForm = () => {
     if (isAuth) {
         return (
             <>
-            <div class="mt-14">
-                <div class="flex justify-end">
-                    <p class="mr-6">Bonjour {user.username}</p>
-                    <Button onClick={signOut} variant="contained">
-                        Déconnexion
-                    </Button>
+            <div className="mt-14">
+                <div className="flex justify-end">
+                    <Text className="mr-6">Bonjour {user.username}</Text>
+                    <Button onClick={signOut} variant="contained"><Text>Déconnexion</Text></Button>
                 </div>
             </div>
             <div>
@@ -56,28 +56,25 @@ const LogInForm = () => {
     return ( 
     <form onSubmit={handleSignIn}>
         
-        <h1 class="text-3xl font-bold text-center">Formularie d'inscription</h1>
-    <div class="flex justify-center mt-8 flex-row">
+        <Text className="text-3xl font-bold text-center">Formularie d'inscription</Text>
+    <div className="flex justify-center mt-8 flex-row">
         <TextField
         type="text"
         name="username"
         variant="outlined"
         placeholder="Login"
         onChange={(e) => {}}
-        />
-        <TextField
+        /><TextField
         type="password"
         name="password"
         variant="outlined"
         placeholder="Mot de passe"
         onChange={(e) => {}}
-        />
-        <Button type="submit" variant="contained">
-        Connexion 
-    </Button>
+        /><Button type="submit" variant="contained"><Text>Connexion</Text></Button>
     </div>
     </form>
     ); 
 }; 
+  
 
 export default LogInForm;
