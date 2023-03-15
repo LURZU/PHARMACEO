@@ -1,19 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
-import { Text, View } from 'react-native';
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import LogInForm  from './src/components/LogInForm';
+import { createStackNavigator } from '@react-navigation/stack';
 
+import { AuthProvider } from './AuthContext';
+import LoginInform from './src/components/LoginInform';
+import HomeScreen from './src/components/HomeScreen';
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <>
-    <NavigationContainer>
-    <View className="flex-1 items-center justify-center bg-white">
-       <Text>Pharmaceo</Text>
-       <LogInForm />
-      <StatusBar style="auto" />
-    </View>
-    </NavigationContainer>
-    </>
-    );
+    <AuthProvider>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Login" component={LoginInform} />
+          <Stack.Screen name="Home" component={HomeScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </AuthProvider>
+  );
 }
